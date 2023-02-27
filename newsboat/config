@@ -1,6 +1,7 @@
 #show-read-feeds no
-auto-reload no
-
+auto-reload yes
+confirm-mark-all-feeds-read no
+confirm-mark-feed-read no
 external-url-viewer "urlscan -dc -r 'linkhandler {}'"
 
 bind-key j down
@@ -22,10 +23,10 @@ bind-key D pb-download
 bind-key U show-urls
 bind-key x pb-delete
 
-color listnormal green default
-color listfocus black blue standout bold
-color listnormal_unread blue default
-color listfocus_unread blue default bold
+color listnormal cyan default
+color listfocus green black standout bold
+color listnormal_unread green default
+color listfocus_unread green default bold
 color info red black bold
 color article white default bold
 
@@ -41,20 +42,15 @@ macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set brows
 macro p set browser "peertubetorrent %u 480" ; open-in-browser ; set browser linkhandler
 macro P set browser "peertubetorrent %u 1080" ; open-in-browser ; set browser linkhandler
 
-
-highlight all "---.*---" blue
+highlight all "---.*---" yellow
 highlight feedlist ".*(0/0))" black
-highlight article "^Feed:.*" white default bold
-highlight article "^Title:.*" white default bold
-highlight article "^Author:.*" white default bold
-highlight article "^Link:.*" white default
-highlight article "^Date:.*" white default bold
-highlight article "https?://[^ ]+" blue default
-highlight article "(^Title:.*$)" yellow default bold
-highlight article "\\[[0-9][0-9]*\\]" blue default
+highlight article "(^Feed:.*|^Title:.*|^Author:.*)" cyan default bold
+highlight article "(^Link:.*|^Date:.*)" default default
+highlight article "https?://[^ ]+" green default
+highlight article "^(Title):.*$" blue default
+highlight article "\\[[0-9][0-9]*\\]" magenta default bold
 highlight article "\\[image\\ [0-9]+\\]" green default bold
-highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default
+highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
 highlight article ":.*\\(link\\)$" cyan default
 highlight article ":.*\\(image\\)$" blue default
-highlight article ":.*\\(embedded flash\\)$" blue default
-
+highlight article ":.*\\(embedded flash\\)$" magenta default
